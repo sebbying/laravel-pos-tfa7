@@ -1,0 +1,6 @@
+@csrf
+<div class="field"><label for="full_name">Full name *</label><input id="full_name" name="full_name" value="{{ old('full_name', $customer->full_name ?? '') }}" maxlength="100" required autocomplete="name" @error('full_name') aria-invalid="true" aria-describedby="full-name-error" @enderror>@error('full_name')<p id="full-name-error" class="error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="email">Email *</label><input id="email" type="email" name="email" value="{{ old('email', $customer->email ?? '') }}" maxlength="150" required autocomplete="email" @error('email') aria-invalid="true" aria-describedby="email-error" @enderror>@error('email')<p id="email-error" class="error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="phone">Phone</label><input id="phone" name="phone" value="{{ old('phone', $customer->phone ?? '') }}" maxlength="30" autocomplete="tel">@error('phone')<p class="error">{{ $message }}</p>@enderror</div>
+<div class="field"><label for="address">Address</label><textarea id="address" name="address" maxlength="1000" rows="3" autocomplete="street-address">{{ old('address', $customer->address ?? '') }}</textarea>@error('address')<p class="error">{{ $message }}</p>@enderror</div>
+<div class="actions"><button type="submit">{{ $submitLabel }}</button><a href="{{ route('customers.index') }}">Cancel</a></div>
